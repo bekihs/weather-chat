@@ -1,12 +1,39 @@
-$.get({
-   url: "cities.json",
-   success: function (data) {
-      console.log('is this my city data')
-      console.log(data)
+var city = require('./cityclass');
 
-   }
+let cityCards = [];
+
+var fetch = function () {
+   $.get({
+      url: "cities.json",
+      success: function (data) {
+         showCityWeather(data);
+      }
+   });
+};
+
+function showCityWeather(data) {
+   // 0. Call global function in fetch with data parameter - worked
+   // 1. How do I connect my script file with my class file - class export & require
+   // 1.1. make an object of city class with invented parameters
+   let cityObj = new City("name", 30, "2.5.18", "19:50");
+   console.log(cityObj);
+   
+   // 1.2. draw new object parameters from function object parameter
+   let cityObj = new City(name, weather, date, time);
+   // 2. add new object to my cityCards array
+   // 3. Save array as string and pass to local storage
+   // 4. Set array equal to parsed local storage
+   // 5. Render all array objects with handlebars each
+
+
+   //console.log(data.cities[0].name);
+}
+
+$('#search').on('click', function () {
+   fetch();
 });
-
+// var telAviv = data.cities[0].name;
+// console.log(telAviv);
 
 
 
