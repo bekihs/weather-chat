@@ -3,17 +3,23 @@
 
 <head>
    <meta charset="utf-8">
-   <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+   <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.min.css">
    <link rel="stylesheet" href="style.css">
-   <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css">
+   <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
    <!--integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous" -->
    <title>Weather Chat App</title>
 </head>
 
 <body>
-   <p>Weather Chat App</p>
-   <script src="node_modules/jquery/dist/jquery.js"></script>
-   <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+   <nav class="navbar navbar-light bg-light justify-content-between">
+      <a class="navbar-brand">Weather Chat</a>
+      <form class="form-inline">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
+    </nav>
+   <script src="jquery/dist/jquery.js"></script>
+   <script src="bootstrap/dist/js/bootstrap.min.js"></script>
    <script src="script.js"></script>
 </body>
 
