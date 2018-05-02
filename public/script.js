@@ -1,4 +1,9 @@
-var city = require('./cityclass');
+import { City } from './city-class.js';
+
+let cityObj = new City("Tel Aviv", 30, 17, 12);
+console.log(cityObj.name);
+
+
 
 let cityCards = [];
 
@@ -34,6 +39,11 @@ $('#search').on('click', function () {
 });
 // var telAviv = data.cities[0].name;
 // console.log(telAviv);
+
+
+
+
+
 
 
 

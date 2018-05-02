@@ -7,9 +7,14 @@ class City {
    }
 }
 
+export {City};
+
+
+
+//export {City};
 //let cityObj = new City(name, weather, date, time);
 
 // import cityclass to script.js
 // import cities.json to 
 
-module.exports = City;
+//module.exports = City;
