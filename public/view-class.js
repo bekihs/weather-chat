@@ -6,6 +6,3 @@ class City {
       this.time = time;
    }
 }
-
-export {City};
-

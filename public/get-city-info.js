@@ -5,10 +5,10 @@ let getTemp = function (cityName) {
       success: function (data) {
          let cTemp = data.query.results.channel.item.condition.temp;
          let fTemp = cTemp * 9 / 5 + 32;
-         return {
-            cTemp: cTemp,
-            fTemp: fTemp
-         }
+         // return {
+         //    cTemp: cTemp,
+         //    fTemp: fTemp
+         // }
       },
       error: function (jqXHR, textStatus, errorThrown) {
          console.log(textStatus);
