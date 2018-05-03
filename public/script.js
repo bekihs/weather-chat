@@ -2,6 +2,32 @@ import {City} from './city-class.js';
 
 //let cityObj = new City("Tel Aviv", 30, 17, 12);
 //console.log(cityObj);
+var fetch = function(cityName) {
+   $.ajax({
+      method: "GET",
+      url: 'https://query.yahooapis.com/v1/public/yql?q=select item.condition from weather.forecast where woeid in (select woeid from geo.places(1) where text="' + cityName + '") and u="c"&format=json',
+      success: function (data) {
+         //$('#temp').html("Temperature in " + cityName + " is " + data.query.results.channel.item.condition.temp + "°C");
+         let cTemp = data.query.results.channel.item.condition.temp;
+         let fTemp = cTemp * 9/5 + 32; 
+         let time = data.query.results.channel.lastBuildDate;
+         
+
+         console.log(cityName);
+         console.log("C:" + cTemp);
+         console.log("F:" + fTemp);
+         console.log(time);
+      },
+      error: function (jqXHR, textStatus, errorThrown) {
+         console.log(textStatus);
+      }
+   });
+};
+
+$('#searchBtn').on('click', function () {
+   let $cityName = $('#searchInp').val();
+   fetch($cityName);
+});
 
 
 
@@ -20,6 +46,9 @@ var fetchJSON = function (cityName) {
       }
    });
 };
+
+
+
 
    // 2. add new object to my cityCards array
    // 3. Save array as string and pass to local storage
