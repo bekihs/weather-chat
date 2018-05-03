@@ -1,29 +1,24 @@
-
-
 class WeatherData {
    constructor (){
       this.cities = [];
    }
 
    //add to cities
+   addToCities(city){
+      cities.push(city)
+   }
    //--- create a new City
    //--- add that new City to cities
-   
-   //remove from cities
 
+   //remove from cities
+      // removeFromCities(city){
+      //    cities.push(city)
+      // }
    //add comment
 
    //remove comment
-}
+};
 
-class City {
-   constructor(name, weather, date, time) {
-      this.name = name;
-      this.weather = weather;
-      this.date = date;
-      this.time = time;
-   }
-}
 
 
 

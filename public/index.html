@@ -14,32 +14,37 @@
    <nav class="navbar navbar-light bg-light justify-content-between">
       <a class="navbar-brand">Israel Cities Weather</a>
       <form class="form-inline">
-         <input class="form-control mr-sm-2" id="searchInp" type="search" placeholder="Tel Aviv, Jerusalem or Haifa" aria-label="Search">
+         <input class="form-control mr-sm-2" id="searchInp" type="search" placeholder="City" aria-label="Search">
          <button class="btn btn-outline-success my-2 my-sm-0" id="searchBtn" type="button">Search</button>
       </form>
    </nav>
 
    <div class="container-fluid">
-      <div class="card">
-         <div class="card-body">
-            <h5 class="card-title">City Name</h5>
-            <h6 class="card-subtitle mb-2 text-muted">
-               <span>14C /</span>
-               <span> 57F</span>
-            </h6>
-            <p class="card-text">
-               <span>11:50 on</span>
-               <span>3/5/2018</span>
-            </p>
-            <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
-         </div>
-      </div>
-
-      
+      <div class="card city"></div>
    </div>
-   <p id="cityName"></p>
+
+
+
+   <script id="city-template" type="text/x-handlebars-template">
+      {{#each posts}}
+      <div class="card-body">
+         <h5 class="card-title">{{ cityName }}</h5>
+         <h6 class="card-subtitle mb-2 text-muted">
+            <span>{{ cTemp }} /</span>
+            <span> {{ fTemp }}</span>
+         </h6>
+         <p class="card-text">
+            <span>{{ time }} on</span>
+            <span>{{ date }}</span>
+         </p>
+         <a href="#" class="btn btn-primary remove">Remove</a>
+      </div>
+      {{/each}}
+   </script>
+
    <script src="jquery/dist/jquery.js"></script>
    <script src="bootstrap/dist/js/bootstrap.min.js"></script>
+   <script src="handlebars/dist/handlebars.js"></script>
    <script src="main.js" type="module"></script>
 </body>
 
