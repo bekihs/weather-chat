@@ -1,32 +1,19 @@
-let fetch = function (date, time, cityName) {
+let getTemp = function (cityName) {
    $.ajax({
       method: "GET",
       url: 'https://query.yahooapis.com/v1/public/yql?q=select item.condition from weather.forecast where woeid in (select woeid from geo.places(1) where text="' + cityName + '") and u="c"&format=json',
       success: function (data) {
-         //$('#temp').html("Temperature in " + cityName + " is " + data.query.results.channel.item.condition.temp + "°C");
          let cTemp = data.query.results.channel.item.condition.temp;
          let fTemp = cTemp * 9 / 5 + 32;
-         //let time = data.query.created;
-
-         console.log(cityName);
-         console.log("C:" + cTemp);
-         console.log("F:" + fTemp);
-         console.log(date);
-         console.log(time);
+         return {
+            cTemp: cTemp,
+            fTemp: fTemp
+         }
       },
       error: function (jqXHR, textStatus, errorThrown) {
          console.log(textStatus);
       }
    });
-};
-
-function getDate() {
-   let dateObj = new Date();
-   let month = dateObj.getMonth() + 1; //months from 1-12
-   let day = dateObj.getDate();
-   let year = dateObj.getFullYear();
-   let date = day + "/" + month + "/" + year;
-   return date;
 };
 function getTime() {
    let dateObj = new Date();
@@ -35,15 +22,35 @@ function getTime() {
    let time = hour + ":" + minutes;
    return time;
 }
+function getDate() {
+   let dateObj = new Date();
+   let month = dateObj.getMonth() + 1; //months from 1-12
+   let day = dateObj.getDate();
+   let year = dateObj.getFullYear();
+   let date = day + "/" + month + "/" + year;
+   return date;
+};
 
+ 
 
 $('#searchBtn').on('click', function () {
-   let date = getDate();
-   let time = getTime();
    let $cityName = $('#searchInp').val();
-   fetch(date, time, $cityName);
+   let temps = getTemp($cityName);
+   let time = getTime();
+   let date = getDate();
+   gatherCityInfo($cityName, temps, time, date)
 });
 
+let gatherCityInfo = function(city, temps, time, date) {
+   return {
+      city: city,
+      temps: temps,
+      time: time,
+      date: date
+   }
+}
+
+export {gatherCityInfo};
 
 /*
    1. City Name
