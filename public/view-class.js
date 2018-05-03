@@ -1,8 +1,8 @@
-class City {
-   constructor(name, weather, date, time) {
-      this.name = name;
-      this.weather = weather;
-      this.date = date;
-      this.time = time;
-   }
+class View {
+
+      //render given array to the page
+
+      //
 }
+
+export {View};
