@@ -7,8 +7,11 @@ import {City} from "./city.js";
 // Instantiating API, data, & view objects
 var api = new getAPI();
 var data = new WeatherData();
-//var view = new View();
+var view = new View();
 
+// Render onload from local storage
+data.cities = data.getFromLocalStorage();
+view.renderCities(data);
 
 
 //Binding click events to actions
@@ -20,15 +23,20 @@ $('#searchBtn').on('click', function () {
    let temp = api.getTemp($cityName)
    .then(function(cityAPI){
       let cTemp = cityAPI.query.results.channel.item.condition.temp;
-      let fTemp = cTemp * 9 / 5 + 32;
+      //let fTemp = cTemp * 9 / 5 + 32;
       let date = data.getDate();
       let time = data.getTime();
+      // var id = Date.now();
             
-      var city = new City($cityName, cTemp, 'April', '5:00');      
-      data.addToCities(city); //
-      console.log(data.cities);
-      console.log(data);
+      let city = new City($cityName, cTemp, date, time);      
 
+      data.pushToCities(city);
+      data.saveToLocalStorage();
+      data.cities = data.getFromLocalStorage();
+
+      view.renderCities(data);
+      $('#searchInp').val("");
+      // console.log(data.cities);
 
 
 
@@ -40,18 +48,22 @@ $('#searchBtn').on('click', function () {
 
 
 
-/* Solution to Export & Import syntax error with node =>4.6.x [duplicate]
-tsconfig.json with:
-{"module": "commonjs"}
-https://stackoverflow.com/questions/44392304/export-import-syntax-error-with-node-4-6-x
-*/
 
+// data = {
+//    cities: [
+//       {x: 1, y: 2},
+//    ],
+//    STORAGE_ID: "weatherchat",
 
-
+//    addToCities(city) {
+//       cities.push(city);
+//    }
+// }
 
 
 // Remove City
-$('#removeCity').on('click', '#card', function () {
+$('body').on('click', '#deleteCity', function () {
+   console.log("remove binding worked");
 
 })
 
@@ -68,11 +80,3 @@ $('#removeCity').on('click', '#card', function () {
    // let date = getDate();
    // gatherCityInfo($cityName, temps, time, date)
 
-   // var data = {
-//    cities: [
-//       {x: 1, y: 2},
-//    ],
-//    addToCities(city) {
-//       cities.push(city);
-//    }
-// }

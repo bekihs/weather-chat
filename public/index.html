@@ -6,38 +6,45 @@
    <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.min.css">
    <link rel="stylesheet" href="style.css">
    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+   <link href="https://fonts.googleapis.com/css?family=Rubik:300" rel="stylesheet">
+
    <!--integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous" -->
-   <title>Israel Cities Weather</title>
+   <title>Weather Chat</title>
 </head>
 
 <body>
    <nav class="navbar navbar-light bg-light justify-content-between">
-      <a class="navbar-brand">Israel Cities Weather</a>
+      <a class="navbar-brand">Weather Chat</a>
       <form class="form-inline">
          <input class="form-control mr-sm-2" id="searchInp" type="search" placeholder="City" aria-label="Search">
          <button class="btn btn-outline-success my-2 my-sm-0" id="searchBtn" type="button">Search</button>
       </form>
    </nav>
 
-   <div class="container-fluid">
-      <div class="card city"></div>
-   </div>
-
+   <div class="container-fluid"></div>
 
 
    <script id="city-template" type="text/x-handlebars-template">
-      {{#each posts}}
-      <div class="card-body">
-         <h5 class="card-title">{{ cityName }}</h5>
-         <h6 class="card-subtitle mb-2 text-muted">
-            <span>{{ cTemp }} /</span>
-            <span> {{ fTemp }}</span>
-         </h6>
-         <p class="card-text">
-            <span>{{ time }} on</span>
-            <span>{{ date }}</span>
-         </p>
-         <a href="#" class="btn btn-primary remove">Remove</a>
+      {{#each cities}}
+      <div class="card text-center city" style="width: 22rem;">
+         <div class="card-body">
+            <a class="delete" id="deleteCity">
+               <i class="fa fa-times" aria-hidden="true"></i>
+            </a>
+            <h6 class="weather">
+               <span>{{ weather }}°</span> <!--<span class="celsius"></span>-->
+            </h6>
+            <h5 class="card-title">{{ name }}</h5>
+            <p class="card-text">
+               <span>{{ time }} on</span>
+               <span>{{ date }}</span>
+            </p>
+
+            <form class="form-inline">
+               <input class="form-control mr-sm-2" id="comment" type="text" placeholder="Comment" aria-label="Delete">
+               <button class="btn btn-outline-success my-2 my-sm-0" id="comment" type="button">Comment</button>
+            </form>
+         </div>
       </div>
       {{/each}}
    </script>
