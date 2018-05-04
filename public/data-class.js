@@ -2,12 +2,44 @@ class WeatherData {
    constructor (){
       this.cities = [];
    }
-
-   //add to cities
+   
+   //Push object to cities array
    addToCities(city){
-      cities.push(city)
+      this.cities.push(city)
    }
-   //--- create a new City
+   getDate(){
+
+   }
+   getTime(){
+      
+   }
+};
+
+
+export {WeatherData};
+
+
+
+// log(city) {
+   //    console.log(city);
+   // }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ //--- create a new City
    //--- add that new City to cities
 
    //remove from cities
@@ -17,13 +49,3 @@ class WeatherData {
    //add comment
 
    //remove comment
-};
-
-
-
-
-
-
-export {WeatherData};
-
-

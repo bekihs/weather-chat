@@ -18,16 +18,33 @@ $('#searchBtn').on('click', function () {
    let $cityName = $('#searchInp').val();
    //temp is a called ajax request without the success function
    let temp = api.getTemp($cityName)
-   .then(function(data){
-      let cTemp = data.query.results.channel.item.condition.temp;
+   .then(function(cityAPI){
+      let cTemp = cityAPI.query.results.channel.item.condition.temp;
       let fTemp = cTemp * 9 / 5 + 32;
-      var city = new City($cityName, cTemp, 'April', '5:00');
-      data.addToCities(city);
+      let date = data.getDate();
+      let time = data.getTime();
+            
+      var city = new City($cityName, cTemp, 'April', '5:00');      
+      data.addToCities(city); //
+      console.log(data.cities);
+      console.log(data);
+
+
+
+
    }).catch(function(err){
       console.log(err);
    })
    //view.renderData();
 });
+
+
+
+/* Solution to Export & Import syntax error with node =>4.6.x [duplicate]
+tsconfig.json with:
+{"module": "commonjs"}
+https://stackoverflow.com/questions/44392304/export-import-syntax-error-with-node-4-6-x
+*/
 
 
 
