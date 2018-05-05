@@ -37,23 +37,31 @@ class WeatherData {
 
    _findPostById(cities, id) {
       for (let i = 0; i < cities.length; i++) {
-         if (cities[i].id == id)
-            return i
+         if (cities[i].id == id) {
+            return i;
+         }
       }
    }
-   removeCityFromArray() {
-      let $cardID = $(this).closest('.city').data().id;
-      console.log($cardID);
-      // let index = this._findPostById(this.cities, $cardID)
-      // this.cities.splice(index,1);
-      //$('[data-item-id="stand-out"]')
-      
 
-      // for (let index = 0; index < this.cities.length; index++) {
-      //    if($cardID == this.cities[index].id) {
-      //       this.cities.splice(index,1);
-      //    }
-      // }
+   removeCityFromArray(deleteCard) {
+      let $cardID = $(deleteCard).closest('.city').data().id;
+      let cardIndex = this._findPostById(this.cities, $cardID);
+      this.cities.splice(cardIndex, 1);
+      this.saveToLocalStorage();
+      this.cities = this.getFromLocalStorage()
+      //console.log($cardID);
+   }
+
+   comment(card, comment) {
+      //let $cardID = $(deleteCard).closest('.city').data().id;
+      let $comment = $(card).prev('#commentInp').val();
+      console.log($comment);
+      let $cardID = $(card).closest('.city').data().id;
+      let cardIndex = this._findPostById(this.cities, $cardID);
+      console.log(cardIndex);
+      this.cities[cardIndex].comments.push($comment);
+      this.saveToLocalStorage();
+      this.cities = this.getFromLocalStorage();
    }
 };
 

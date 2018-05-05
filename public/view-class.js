@@ -1,17 +1,8 @@
 class View {
-   constructor() {
-      //this.citiesArr = citiesArr;
-
-      //render given array to the page
-
-      //
-      /**/
-
-   }
+   constructor() {}
 
    renderCities(data) {
-      // $posts.empty();
-      console.log(data);
+      $('.container-fluid').empty();
       
       var source = $('#city-template').html();
       var template = Handlebars.compile(source);
@@ -26,3 +17,10 @@ class View {
 export {
    View
 };
+
+      //this.citiesArr = citiesArr;
+
+      //render given array to the page
+
+      //
+      /**/

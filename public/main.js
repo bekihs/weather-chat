@@ -23,7 +23,6 @@ $('#searchBtn').on('click', function () {
    let temp = api.getTemp($cityName)
    .then(function(cityAPI){
       let cTemp = cityAPI.query.results.channel.item.condition.temp;
-      //let fTemp = cTemp * 9 / 5 + 32;
       let date = data.getDate();
       let time = data.getTime();
       
@@ -36,30 +35,24 @@ $('#searchBtn').on('click', function () {
 
       view.renderCities(data);
       $('#searchInp').val("");
-      // console.log(data.cities);
-
-
 
    }).catch(function(err){
       console.log(err);
    })
-   //view.renderData();
 });
 
 // Remove City
 $('body').on('click', '#deleteCity', function () {
-   data.removeCityFromArray();
-   // data.saveToLocalStorage();
-   // data.cities = data.getFromLocalStorage();
-   // view.renderCities(data);
+   data.removeCityFromArray(this);
+   view.renderCities(data);
+});
 
-   // 1. remove from array
-   // 2. set ls = array
-   // 3. set array = ls
-   // 4. render
-   //console.log("remove binding worked");
-})
-
+// Add Comment
+$('body').on('click', '#commentBtn', function () {
+   let $comment = $('#commentInp').val();
+   data.comment(this, $comment);
+   view.renderCities(data);
+});
 
 // data = {
 //    cities: [
@@ -76,7 +69,7 @@ $('body').on('click', '#deleteCity', function () {
 
 
 
-// Add Comment
+
 
 
 
