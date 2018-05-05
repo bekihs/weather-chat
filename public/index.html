@@ -27,7 +27,7 @@
       {{#each cities}}
       <div class="card text-center city" data-id="{{ id }}" style="width: 22rem;">
          <div class="card-body">
-            <a class="delete" id="deleteCity" >
+            <a class="delete" id="deleteCity">
                <i class="fa fa-times" aria-hidden="true"></i>
             </a>
             <h6 class="weather">
@@ -43,6 +43,14 @@
                <input id="commentInp" class="form-control mr-sm-2" type="text" placeholder="Comment" aria-label="Comment">
                <button id="commentBtn" class="btn btn-outline-success my-2 my-sm-0" type="button">Comment</button>
             </form>
+            <div>
+               <ul class="comments">
+                  {{#each comments}}
+                  <li>{{ comment }}</li>
+                  {{/each}}
+               </ul>
+            </div>
+
          </div>
       </div>
       {{/each}}

@@ -9,4 +9,10 @@ class City {
    }
 };
 
-export {City};
+class Comment {
+   constructor(comment){
+      this.comment = comment;
+   }
+};
+
+export {City, Comment};

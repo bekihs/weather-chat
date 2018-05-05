@@ -1,4 +1,5 @@
 //import { log } from "handlebars";
+import {Comment} from "./city.js";
 
 class WeatherData {
    constructor() {
@@ -52,14 +53,13 @@ class WeatherData {
       //console.log($cardID);
    }
 
-   comment(card, comment) {
-      //let $cardID = $(deleteCard).closest('.city').data().id;
+   comment(card) {
       let $comment = $(card).prev('#commentInp').val();
-      console.log($comment);
+      let comment = new Comment($comment);
       let $cardID = $(card).closest('.city').data().id;
       let cardIndex = this._findPostById(this.cities, $cardID);
-      console.log(cardIndex);
-      this.cities[cardIndex].comments.push($comment);
+      
+      this.cities[cardIndex].comments.push(comment);
       this.saveToLocalStorage();
       this.cities = this.getFromLocalStorage();
    }

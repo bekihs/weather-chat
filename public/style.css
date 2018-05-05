@@ -35,3 +35,11 @@
    font-family: 'Rubik', sans-serif;
    color: #727272;
 }
+.comments {
+   margin-top: 15px;
+   margin-bottom: 0px;
+   padding: 0, 10px, 0, 10px;
+}
+.comments li {
+   text-align: left;
+}

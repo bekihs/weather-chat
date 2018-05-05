@@ -49,9 +49,9 @@ $('body').on('click', '#deleteCity', function () {
 
 // Add Comment
 $('body').on('click', '#commentBtn', function () {
-   let $comment = $('#commentInp').val();
-   data.comment(this, $comment);
+   data.comment(this);
    view.renderCities(data);
+
 });
 
 // data = {
