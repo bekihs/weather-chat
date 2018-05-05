@@ -4,10 +4,12 @@ import {WeatherData} from "./data-class.js";
 import {View} from "./view-class.js";
 import {City} from "./city.js";
 
+
 // Instantiating API, data, & view objects
 var api = new getAPI();
 var data = new WeatherData();
 var view = new View();
+
 
 // Render onload from local storage
 data.cities = data.getFromLocalStorage();
@@ -15,7 +17,6 @@ view.renderCities(data);
 
 
 //Binding click events to actions
-
 // Add City
 $('#searchBtn').on('click', function () {
    let $cityName = $('#searchInp').val();
@@ -41,11 +42,13 @@ $('#searchBtn').on('click', function () {
    })
 });
 
+
 // Remove City
 $('body').on('click', '#deleteCity', function () {
    data.removeCityFromArray(this);
    view.renderCities(data);
 });
+
 
 // Add Comment
 $('body').on('click', '#commentBtn', function () {
@@ -53,31 +56,3 @@ $('body').on('click', '#commentBtn', function () {
    view.renderCities(data);
 
 });
-
-// data = {
-//    cities: [
-//       {x: 1, y: 2},
-//    ],
-//    STORAGE_ID: "weatherchat",
-
-//    addToCities(city) {
-//       cities.push(city);
-//    }
-// }
-
-
-
-
-
-
-
-
-
-
-   // let tryAPI = new getAPI($cityName);
-   // console.log(tryAPI);
-   //let temps = getTemp($cityName);
-   // let time = getTime();
-   // let date = getDate();
-   // gatherCityInfo($cityName, temps, time, date)
-
