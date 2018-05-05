@@ -4,6 +4,7 @@ class City {
       this.weather = weather;
       this.date = date;
       this.time = time;
+      this.id = Date.now();
    }
 };
 

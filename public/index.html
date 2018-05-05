@@ -26,13 +26,13 @@
 
    <script id="city-template" type="text/x-handlebars-template">
       {{#each cities}}
-      <div class="card text-center city" style="width: 22rem;">
+      <div class="card text-center city" data-id="{{ id }}" style="width: 22rem;">
          <div class="card-body">
             <a class="delete" id="deleteCity">
                <i class="fa fa-times" aria-hidden="true"></i>
             </a>
             <h6 class="weather">
-               <span>{{ weather }}°</span> <!--<span class="celsius"></span>-->
+               <span>{{ weather }}°</span>
             </h6>
             <h5 class="card-title">{{ name }}</h5>
             <p class="card-text">

@@ -15,7 +15,7 @@
 .weather {
    font-family: 'Rubik', sans-serif;
    font-size: 80px;
-   color: #d8751e;
+   color: black;
    /* Backup of bootstrap classes: card-subtitle mb-2 text-muted */
 }
 .celsius {

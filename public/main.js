@@ -26,7 +26,7 @@ $('#searchBtn').on('click', function () {
       //let fTemp = cTemp * 9 / 5 + 32;
       let date = data.getDate();
       let time = data.getTime();
-      // var id = Date.now();
+      
             
       let city = new City($cityName, cTemp, date, time);      
 
@@ -46,7 +46,19 @@ $('#searchBtn').on('click', function () {
    //view.renderData();
 });
 
+// Remove City
+$('body').on('click', '#deleteCity', function () {
+   data.removeCityFromArray();
+   // data.saveToLocalStorage();
+   // data.cities = data.getFromLocalStorage();
+   // view.renderCities(data);
 
+   // 1. remove from array
+   // 2. set ls = array
+   // 3. set array = ls
+   // 4. render
+   //console.log("remove binding worked");
+})
 
 
 // data = {
@@ -61,11 +73,7 @@ $('#searchBtn').on('click', function () {
 // }
 
 
-// Remove City
-$('body').on('click', '#deleteCity', function () {
-   console.log("remove binding worked");
 
-})
 
 
 // Add Comment
