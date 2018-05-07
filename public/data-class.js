@@ -3,12 +3,12 @@ import {Comment} from "./city.js";
 
 class WeatherData {
    constructor() {
-      this.cities = [];
+      this.cities = []; // use the getFromLocalStorage here
    }
 
    //Push object to cities array
    pushToCities(city) {
-      this.cities.push(city)
+      this.cities.push(city) // save tolocal strage after every change
    };
 
 
@@ -32,23 +32,23 @@ class WeatherData {
 
 
    removeCityFromArray(deleteCard) {
-      let $cardID = $(deleteCard).closest('.city').data().id;
-      let cardIndex = this._findPostById(this.cities, $cardID);
+      let cardID = $(deleteCard).closest('.city').data().id; // JQuery in the data layer? The data class should only know about the data. no hTML elements 
+      let cardIndex = this._findPostById(this.cities, cardID); // You shouldnt know the HTML at all
       this.cities.splice(cardIndex, 1);
       this.saveToLocalStorage();
-      this.cities = this.getFromLocalStorage()
+      // no need !  - this.cities = this.getFromLocalStorage()
    }
 
 
    comment(card) {
-      let $comment = $(card).prev('#commentInp').val();
+      let $comment = $(card).prev('#commentInp').val(); // no html 
       let comment = new Comment($comment);
       let $cardID = $(card).closest('.city').data().id;
       let cardIndex = this._findPostById(this.cities, $cardID);
       
       this.cities[cardIndex].comments.push(comment);
       this.saveToLocalStorage();
-      this.cities = this.getFromLocalStorage();
+      // no need  - this.cities = this.getFromLocalStorage();
    }
    
 
