@@ -21,7 +21,7 @@ view.renderCities(data);
 $('#searchBtn').on('click', function () {
    let $cityName = $('#searchInp').val();
    //temp is a called ajax request without the success function
-   let temp = api.getTemp($cityName)
+   let temp = api.getTemp($cityName) // Maybe think about creating a new class for weatherAPI
    .then(function(cityAPI){
       let cTemp = cityAPI.query.results.channel.item.condition.temp;
       let date = data.getDate();
@@ -31,7 +31,7 @@ $('#searchBtn').on('click', function () {
       let city = new City($cityName, cTemp, date, time);      
 
       data.pushToCities(city);
-      data.saveToLocalStorage();
+      data.saveToLocalStorage(); // saveToLocalStorage is a private function of data!
       data.cities = data.getFromLocalStorage();
 
       view.renderCities(data);
