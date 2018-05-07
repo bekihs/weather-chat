@@ -1,6 +1,6 @@
 class getAPI {
    constructor(cityName) {
-      this.name = cityName;
+      this.name = cityName; // you getting the city name as part of the the getTemp funcion. The constructorshould be one for all application. 
    }
 
    getTemp(cityName) {
