@@ -3,7 +3,7 @@ import {Comment} from "./city.js";
 
 class WeatherData {
    constructor() {
-      this.cities = [];
+      this.cities = []; //   What about getting the data from the localstorage?
    }
 
    //Push object to cities array
@@ -36,7 +36,7 @@ class WeatherData {
       let cardIndex = this._findPostById(this.cities, $cardID);
       this.cities.splice(cardIndex, 1);
       this.saveToLocalStorage();
-      this.cities = this.getFromLocalStorage()
+      this.cities = this.getFromLocalStorage();
    }
 
 
